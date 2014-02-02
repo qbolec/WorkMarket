@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>This is a list of all works</h1>
+      <table class="table table-hover">
+        <tr>
+          <th>#</th>
+          <th>status</th>
+          <th>work file</th>
+          <th>result file</th>
+        </tr>
+        <% _.each(d.works,function(work){ %>
+        <tr class="bg-<%- work.status =='done' ? 'success' : 'warning' %>">
+          <td><%- work.id %></td>
+          <td><%- work.status %></td>
+          <td><a href="/download_work/<%- work.id  %>">work</a></td>
+          <td><a href="/download_result/<%- work.id %>">result</a></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>
