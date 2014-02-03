@@ -82,7 +82,7 @@ function decompress_work(work,filename,retry_all){
 
 function download_work(work,retry_all){
   var url = base_url + '/download_work/' + work.id;
-  var retry = function(){_.delay(download_work(work,retry_all),1000);};
+  var retry = function(){_.delay(function(){download_work(work,retry_all)},1000);};
   restler.get(url,{
 
   }).on('success',function(data,response){
